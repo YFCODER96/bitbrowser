@@ -1,0 +1,64 @@
+{
+  "name": "bitbrowser",
+  "version": "1.0.0",
+  "description": "比特浏览器 SDK - 用于控制和管理比特浏览器窗口的 TypeScript/JavaScript SDK",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json && echo {\"type\":\"commonjs\"} > dist/cjs/package.json",
+    "build:esm": "tsc -p tsconfig.esm.json && echo {\"type\":\"module\"} > dist/esm/package.json",
+    "clean": "rimraf dist",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "bitbrowser",
+    "browser",
+    "automation",
+    "sdk",
+    "fingerprint",
+    "proxy",
+    "anti-detect"
+  ],
+  "author": "yfcoder",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "rimraf": "^6.1.2",
+    "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YFCODER96/bitbrowser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YFCODER96/bitbrowser/issues"
+  },
+  "homepage": "https://github.com/YFCODER96/bitbrowser#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
