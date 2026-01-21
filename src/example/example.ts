@@ -38,7 +38,7 @@ async function main() {
     },
   });
 
-  if (!createResult.success) {
+  if (!createResult.success || !createResult.data) {
     console.error("创建窗口失败:", createResult.msg);
     return;
   }
@@ -116,7 +116,7 @@ async function batchExample() {
       browserFingerPrint: {}, // 随机指纹
     });
 
-    if (result.success) {
+    if (result.success && result.data) {
       browserIds.push(result.data.id);
       console.log(`  窗口 ${i + 1} 创建成功: ${result.data.id}`);
     }
@@ -218,7 +218,7 @@ async function listBrowsersExample() {
 
 // 运行示例
 // main().catch(console.error);
-// batchExample().catch(console.error);
+batchExample().catch(console.error);
 // proxyCheckExample().catch(console.error);
 // listBrowsersExample().catch(console.error);
 

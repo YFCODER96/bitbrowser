@@ -5,6 +5,7 @@
 import type {
   ApiResponse,
   CreateBrowserOptions,
+  CreateBrowserResult,
   OpenBrowserOptions,
   OpenBrowserResult,
   ListBrowserOptions,
@@ -18,9 +19,11 @@ export class BrowserAPI extends BaseAPI {
    * 创建浏览器窗口
    * @param options 创建参数
    */
-  async create(options: CreateBrowserOptions): Promise<ApiResponse> {
+  async create(
+    options: CreateBrowserOptions,
+  ): Promise<ApiResponse<CreateBrowserResult>> {
     return this.client
-      .post<ApiResponse>("/browser/update", options)
+      .post<ApiResponse<CreateBrowserResult>>("/browser/update", options)
       .then((res) => res.data);
   }
 
