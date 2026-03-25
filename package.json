@@ -1,6 +1,6 @@
 {
   "name": "bitbrowser",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "比特浏览器 SDK - 用于控制和管理比特浏览器窗口的 TypeScript/JavaScript SDK",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",

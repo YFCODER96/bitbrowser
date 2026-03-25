@@ -11,6 +11,7 @@ import type {
   ListBrowserOptions,
   ListBrowserResult,
   WindowBoundsOptions,
+  BrowserDetail,
 } from "../types/index.js";
 import { BaseAPI } from "./base.js";
 
@@ -119,9 +120,9 @@ export class BrowserAPI extends BaseAPI {
    * 获取浏览器窗口详情
    * @param id 浏览器窗口ID
    */
-  async getDetail(id: string): Promise<ApiResponse> {
+  async getDetail(id: string): Promise<ApiResponse<BrowserDetail>> {
     return this.client
-      .post<ApiResponse>("/browser/detail", { id })
+      .post<ApiResponse<BrowserDetail>>("/browser/detail", { id })
       .then((res) => res.data);
   }
 
